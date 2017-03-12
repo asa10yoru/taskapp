@@ -11,7 +11,7 @@ import RealmSwift
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var TableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     // Realmインスタンスを取得する
     let realm = try! Realm()
@@ -84,7 +84,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let inputViewController:InputViewController = segue.destinationViewController as! InputViewController
         
         if segue.identifier == "cellSegue" {
-            let indexPath = self.TableView.indexPathForSelectedRow
+            let indexPath = self.tableView.indexPathForSelectedRow
             inputViewController.task = taskArray[indexPath!.row]
         } else {
             let task = Task()
@@ -101,7 +101,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // 入力画面から戻ってきた時に TableView を更新させる
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        TableView.reloadData()
+        tableView.reloadData()
     }
     
 }
